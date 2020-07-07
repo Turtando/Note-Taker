@@ -15,7 +15,7 @@
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
 
   <body>
@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-4 list-container">
           <div class="card">
-            <ul class="list-group"id="notes"></ul>
+            <ul class="list-group" id="notes"></ul>
           </div>
         </div>
         <div class="col-8">
@@ -56,17 +56,18 @@
       $(document).ready(function () {
         $.get("/api/savedNotes", function (savedText) {
           console.log(savedText);
+          
+          // Loop through
           for (var i = 0; i < savedText.length; i++) {
-            var notes = $("#notes")
+            var notes = $("#notes");
             var listItem = $("<li class='list-group-item mt-4'>");
 
             listItem.append(
-            $("<h2>").text(savedText[i].title),
-            $("<h2>").text(savedText[i].text)
-            )
+              $("<p>").text(savedText[i].title),
+              $("<p>").text(savedText[i].text)
+            );
 
-            
-              $("").append();
+            notes.append(listItem);
           }
         });
       });
@@ -74,14 +75,15 @@
       $(".save-note").on("click", function (event) {
         console.log("this clicked!");
         event.preventDefault();
-
+        
+        //Grab the information typed
         var newNote = {
           title: $("#title").val().trim(),
-          text: $("#textarea").val().trim(),
+          text: $("#textarea").val().trim()
         };
         console.log(newNote);
 
-        $.post("/api/savedNotes", newNote).then(function () {
+        $.post("/api/savedNotes", newNote).then(function(data) {
           $("#title").val("");
           $("#textarea").val("");
           console.log("Adding note...");
