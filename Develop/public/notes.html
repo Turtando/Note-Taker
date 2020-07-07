@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-4 list-container">
           <div class="card">
-            <ul class="list-group"></ul>
+            <ul class="list-group"id="notes"></ul>
           </div>
         </div>
         <div class="col-8">
@@ -57,9 +57,16 @@
         $.get("/api/savedNotes", function (savedText) {
           console.log(savedText);
           for (var i = 0; i < savedText.length; i++) {
-            var title = $("<li>").text(savedText[i].title);
-            var text = $("<li>").text(savedText[i].text);
-            $("").append();
+            var notes = $("#notes")
+            var listItem = $("<li class='list-group-item mt-4'>");
+
+            listItem.append(
+            $("<h2>").text(savedText[i].title),
+            $("<h2>").text(savedText[i].text)
+            )
+
+            
+              $("").append();
           }
         });
       });
