@@ -2,6 +2,7 @@
 
 # Your Personal Note Taker
 
+https://turton-note-taker.herokuapp.com/
 
 # Description 
 This note-taking program works by having our user save their work to our server API which essentially saves their information to a file. The user has the ability to create as many notes as he or she likes along with deleting them individually or viewing them.
@@ -23,7 +24,8 @@ Create a note and save it!
 
 # Usage
 
-https://turton-note-taker.herokuapp.com/
+Below is a gif of my presentation. 
+![](./public/assets/note-taker.gif.gif)
 
 
 # License
